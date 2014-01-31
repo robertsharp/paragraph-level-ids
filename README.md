@@ -16,12 +16,12 @@ http://www.robertsharp.co.uk/2013/10/09/why-i-wrote-my-wordpress-plugin/
 
 Installation works just like most other WordPress plugins.
 
-    Download the plug-in from right here or better yet, the WordPress plugin repository.
-    http://wordpress.org/plugins/paragraph-level-ids/
-    Unzip the files and upload rs-para-level-ids.php to the wp-content/plugins directory.
-    Visit the plugins section of your WordPress Dashboard.
-    Activate the plugin
-    Nothing will be changed in your website’s source code until you visit the ‘Paragraph IDs’ options under the WordPress ‘Settings’ menu.
+Download the plug-in from right here or better yet, the WordPress plugin repository.
+http://wordpress.org/plugins/paragraph-level-ids/
+Unzip the files and upload rs-para-level-ids.php to the wp-content/plugins directory.
+Visit the plugins section of your WordPress Dashboard.
+Activate the plugin
+Nothing will be changed in your website’s source code until you visit the ‘Paragraph IDs’ options under the WordPress ‘Settings’ menu.
 
 Please review this plugin on the WordPress plugins directory, and add your vote to the ‘compatability’ section to let others know that it works.
 http://wordpress.org/support/view/plugin-reviews/paragraph-level-ids
@@ -36,12 +36,12 @@ Road Map
 
 In the future I hope to make the following improvements.
 
-    A feature that would place a discreet but clickable (or right-clickable) link at the end of each paragraph, to allow easy linking, like this. #
-    Streamline the code so it is at its most efficient and smallest file size.
-    Further customisation options for the id and anchors.
-    A test to prevent anchors and ids from having the same value.
-    A degree of backwards compatibility
-    Ensure the layout of the settings page is as pretty and efficient as possible.
-    Language localisation for the settings page.
+A feature that would place a discreet but clickable (or right-clickable) link at the end of each paragraph, to allow easy linking, like this. #
+Streamline the code so it is at its most efficient and smallest file size.
+Further customisation options for the id and anchors.
+A test to prevent anchors and ids from having the same value.
+A degree of backwards compatibility
+Ensure the layout of the settings page is as pretty and efficient as possible.
+Language localisation for the settings page.
 
 I would welcome any advice, offers of support, bug-testing, forking the project and troubleshooting to help make these extra features possible.
