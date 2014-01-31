@@ -5,9 +5,9 @@ http://www.robertsharp.co.uk/paragraph-level-ids
 
 I’ve created a simple plugin for WordPress sites.  The Paragraph Level IDs plugin adds an ‘id’ attribute to each paragraph tag in a blog post, giving the author and readers additional functionality.
 
-So for example, <p> becomes <p id="para1234-5">.
+So for example, < p > becomes < p id="para1234-5" >.
 
-The plugin also offers the option to include an anchor tag before each paragraph, like this: <a name="para1234-5"></a>.
+The plugin also offers the option to include an anchor tag before each paragraph, like this: < a name="para1234-5" >< /a >.
 
 Both these additions allow anyone to link directly to that paragraph in the post. This is especially useful for long tracts of text, academic writing, and legal documents.
 
