@@ -92,33 +92,104 @@ class InsertAnchors {
     public function build( $pattern, $content ) 
 		
 		{	
+
+    /*
+    *  Constructor
+    *
+    *  @description: This method will be called each time this object is created
+    */
+    public function __construct() {
+
+        add_filter( 'the_content', array($this, 'para_ids_content_filter'), 100 ); 
+
+    }
+    
+    /*
+    *  Build
+    *
+    *  @description: 
+    */
+    public function scan( $start_pattern, $end_pattern, $content ) 
+	{	
 		
+        // Scan the content for the start pattern
 		$this->count = 0;
-        	$content = preg_replace_callback( $pattern, array( $this, '_replacer' ), $content );
-   			return $content; 	}
-   
-	public function _replacer( $matches ) {
+        $content = preg_replace_callback( $start_pattern, array( $this, 'insertID' ), $content );
+
+        // Scan the content for the end pattern
+        $this->count = 0;
+        $content = preg_replace_callback( $end_pattern, array( $this, 'insertAnchor' ), $content );
+
+        return $content; 
+
+    }
+
+
+    /*
+    *  insertID
+    *
+    *  @description: 
+    */
+	public function insertID( $matches )
+    {
        
-	  $postid = get_the_ID(); 
-	  $this->count++;
+        $postid = get_the_ID(); 
+        $this->count++;
        
-	    if(get_option('rs_para_ids_enabled')) {	
-			if(get_option('rs_anchor_enabled')) {
-				return '<a name="' . 	get_option('rs_anchor_prefix') . $postid . '-' . $this->count . '"></a><p id="' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">';   }
-	  		else {
-		  		return '<p id="' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">'; }}
-	  	else {
-		  	if(get_option('rs_anchor_enabled')) {
-	  			return '<a name="' . get_option('rs_anchor_prefix') . $postid . '-' . $this->count . '"></a><p>';   }
-	  		else {
-		  		return '<p>'; }	}	}	}
+	    if (get_option('rs_para_ids_enabled')) {	
 
-function para_ids_content_filter( $content ) {
+            return '<p id="' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">'; 
 
-	if(is_single()) {
-    	$insert = new InsertAnchors();
-   		return $insert->build( '~<p>~', $content );	}
-	else { return $content; } }
+        } else {
+	  		
+		  	return '<p>'; 
 
-add_filter( 'the_content', 'para_ids_content_filter', 100 ); 
+        }
+
+    }	
+
+
+    /*
+    *  insertAnchor
+    *
+    *  @description: 
+    */
+    public function insertAnchor( $matches )
+    {
+       
+        $postid = get_the_ID(); 
+        $this->count++;
+       
+        if (get_option('rs_anchor_enabled')) {
+
+            return '&nbsp;<a href="#' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">#</a></p>';   
+        
+        } else {
+            
+            return '</p>'; 
+
+        }
+
+    }
+    
+
+    /*
+    *  para_ids_content_filter
+    *
+    *  @description: 
+    */
+    public function para_ids_content_filter( $content ) 
+    {
+
+        if (is_single()) {
+            
+            return $this->scan( '~<p>~', '~</p>~', $content ); 
+
+        } else { 
+
+            return $content; 
+        } 
+    }
+
+$rs = new rsParagraphIDs();
 ?>
