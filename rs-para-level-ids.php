@@ -74,7 +74,6 @@ function rs_para_ids_options() { ?>
      <p>Enable this section to add anchors immediately before each paragraph tag in your content.  You can choose an optional prefix if you wish.</p>
     <input type="checkbox" name="rs_anchor_enabled" value="1" <?php checked( get_option('rs_anchor_enabled'), 1 ); ?> />
     <label for="rs_anchor_enabled">Enable</label><br />
-	<input name="rs_anchor_prefix" type="text" id="rs_anchor_prefix" value="<?php echo get_option('rs_anchor_prefix'); ?>" class="regular-text" />
 	<p class="submit">
       <input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save Changes') ?>" />
     </p>		
