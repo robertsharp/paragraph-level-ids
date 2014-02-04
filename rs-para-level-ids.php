@@ -159,7 +159,7 @@ class rsParagraphIDs
         $postid = get_the_ID(); 
         $this->count++;
        
-        return '&nbsp;<a href="#' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">#</a></p>';   
+        return '&nbsp;<a href="#' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '" title="Link to this paragraph">#</a></p>';   
         
     }
     
