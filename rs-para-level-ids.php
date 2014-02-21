@@ -170,7 +170,7 @@ class rsParagraphIDs
     public function para_ids_content_filter( $content ) 
     {
 
-        if (is_single()) {
+        if (is_singular()) {
             
             return $this->scan( '~<p>~', '~</p>~', $content ); 
 
