@@ -24,10 +24,8 @@ Author URI: http://www.robertsharp.co.uk
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if(is_admin()) {
-    add_action('admin_menu', 'rs_para_ids_menu'); 
-    add_action('admin_init', 'rs_para_ids_register');
-}
+
+add_action('admin_menu', 'rs_para_ids_menu'); 
 
 function rs_para_ids_register() {
     register_setting('rs_para_ids_optiongroup', 'rs_para_ids_enabled');
