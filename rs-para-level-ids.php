@@ -33,6 +33,22 @@ function rs_para_ids_register() {
     register_setting('rs_para_ids_optiongroup', 'rs_anchor_enabled');
     register_setting('rs_para_ids_optiongroup', 'rs_anchor_prefix');
 }
+add_action('admin_init', 'rs_para_ids_register');
+
+function rs_para_ids_load_js_and_css() {
+    
+    wp_register_style( 'rs-para-ids', plugins_url('rs-para-ids.css', __FILE__), array(), '0.1' );
+    wp_register_script( 'rs-para-ids', plugins_url('rs-para-ids.js', __FILE__), array('jquery'),null,true );
+
+    if (is_singular()) {
+        
+        wp_enqueue_style( 'rs-para-ids');
+        wp_enqueue_script('rs-para-ids');
+
+    }   
+
+}
+add_action( 'wp_enqueue_scripts', 'rs_para_ids_load_js_and_css' );
 
 function rs_para_ids_menu() {
     add_options_page('Paragraph Level IDs Settings', 'Paragraph IDs', 'manage_options', 'paragraph-level-ids', 'rs_para_ids_options');
@@ -141,7 +157,7 @@ class rsParagraphIDs
         $postid = get_the_ID(); 
         $this->count++;
        
-        return '<p id="' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">'; 
+        return '<p class="rs-para" id="' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '">'; 
 
     }	
 
@@ -157,7 +173,7 @@ class rsParagraphIDs
         $postid = get_the_ID(); 
         $this->count++;
        
-        return '&nbsp;<a href="#' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '" title="Link to this paragraph">#</a></p>';   
+        return '&nbsp;<a href="#' . get_option('rs_para_id_prefix') . $postid . '-' . $this->count . '" title="Link to this paragraph" class="rs-anchor"># Link in context</a></p>';   
         
     }
     

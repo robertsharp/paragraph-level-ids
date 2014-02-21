@@ -1,0 +1,7 @@
+.rs-anchor {
+	color: #777;
+	display: none;
+}
+.rs-para.active {
+	background: #ffc;
+}
