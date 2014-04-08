@@ -1,4 +1,5 @@
 jQuery(document).ready(function () {
+jQuery(document).ready(function ($) {
 
 	var para_id;
 	var hash = window.location.hash;
