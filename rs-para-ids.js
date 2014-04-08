@@ -1,4 +1,3 @@
-jQuery(document).ready(function () {
 jQuery(document).ready(function ($) {
 
 	var para_id;
@@ -11,7 +10,7 @@ jQuery(document).ready(function ($) {
 			para_id = '#' + $(this).attr('id');
 
 			if (para_id != hash) {
-				$(this).addClass('active');
+				$(this).addClass('rs-active');
 			}
 			$(this).find('.rs-anchor').show();
 
@@ -20,7 +19,7 @@ jQuery(document).ready(function ($) {
 			para_id = '#' + $(this).attr('id');
 
 			if (para_id != hash) {
-				$(this).removeClass('active');
+				$(this).removeClass('rs-active');
 			}
 			$(this).find('.rs-anchor').hide();
 		}
