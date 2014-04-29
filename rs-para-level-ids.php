@@ -2,9 +2,9 @@
 /*
 Plugin Name: Paragraph Level IDs
 Plugin URI: http://www.robertsharp.co.uk/paragraph-level-ids/
-Description:  Now you and your readers can link to specific paragraphs in your blog posts.  This plug-in adds a customizable 'id' attribute to your <p> tags, and/or an an anchor above each paragraph.
+Description:  Now you and your readers can link to specific paragraphs in your blog posts.  This plug-in adds a customizable, linkable 'id' attribute to your <p> tags.
 Author: Robert Sharp
-Version: 0.2
+Version: 1.0
 Author URI: http://www.robertsharp.co.uk
 */
 
@@ -60,18 +60,9 @@ function rs_para_ids_options() { ?>
     <div class="wrap">
         <div id="icon-options-general" class="icon32"><br /></div>
         <h2>Paragraph Level IDs</h2>
-        <p>by <strong><a href="http://www.robertsharp.co.uk" title="Visit my website">Robert Sharp</a></strong> | <a href="https://twitter.com/robertsharp59" title="Follow me on Twitter">robertsharp59</a>
-            
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-        ">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-        <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
-        </form>
-        </p>
+        <p>Conceived by <strong><a href="http://www.robertsharp.co.uk" title="Visit my website">Robert Sharp</a></strong> and developed by <a href="https://twitter.com/strangerpixel" title="Follow me on Twitter">@strangerpixel</a> | <a href="https://twitter.com/robertsharp59" title="Follow me on Twitter">robertsharp59</a></p>
 
-        <p>This plugin adds paragraph level IDs and anchors to your post content.</p>
+        <p>This plugin adds paragraph level IDs to your post content.</p>
         
         <p><em>Note:  This plugin only acts on a simple <code>&lt;p&gt;</code> tag with no attributes.</em></p>
      
